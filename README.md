@@ -38,3 +38,16 @@ To generate a short URL, make a POST request to `/generate` with the following J
 {
     "originalUrl": "http://your-original-long-url.com"
 }
+```
+
+### Enable URL
+To enable a URL, make a PUT request to /enable/{shortLink}.
+
+### Disable URL
+To disable a URL, make a PUT request to /disable/{shortLink}.
+
+### Get User's URLs
+To get all URLs for a user, make a GET request to /user/urls.
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
