@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>All URLs</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 15px;
+    }
+  </style>
+</head>
+<body>
+<h1>Your URLs</h1>
+<table>
+  <thead>
+  <tr>
+    <th>Short Link</th>
+    <th>Original URL</th>
+    <th>Expiration Date</th>
+    <th>Click Count</th>
+    <th>Last Accessed</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="url : ${urls}">
+    <td th:text="${url.shortLink}"></td>
+    <td th:text="${url.originalUrl}"></td>
+    <td th:text="${url.expirationDate}"></td>
+    <td th:text="${url.clickCount}"></td>
+    <td th:text="${url.lastAccessed}"></td>
+    <td>
+      <form th:if="${url.enabled}" th:action="@{/disable/{shortLink}(shortLink=${url.shortLink})}" method="post">
+        <input type="submit" value="Disable">
+      </form>
+      <form th:if="${!url.enabled}" th:action="@{/enable/{shortLink}(shortLink=${url.shortLink})}" method="post">
+        <input type="submit" value="Enable">
+      </form>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

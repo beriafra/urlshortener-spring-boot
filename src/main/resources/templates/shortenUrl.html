@@ -1,0 +1,25 @@
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<body>-->
+
+<!--<h2>Submit URL</h2>-->
+
+<!--<form action="/action_page" method="get">-->
+<!--  <label for="url">URL:</label><br>-->
+<!--  <input type="url" id="url" name="url" required><br>-->
+<!--  <input type="submit" value="Submit">-->
+<!--</form>-->
+
+<!--</body>-->
+<!--</html>-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<form action="#" th:action="@{/generateShortLink}" th:object="${urlDto}" method="post">
+  <input type="text" th:field="*{url}" placeholder="Enter URL">
+  <button type="submit">Generate</button>
+</form>
+
+</body>
+</html>
